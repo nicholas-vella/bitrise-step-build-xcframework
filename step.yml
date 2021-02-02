@@ -61,6 +61,14 @@ inputs:
         Project scheme to build
       is_expand: true
       is_required: true
+  - product_name:
+    opts:
+      title: "Name of XCFramework"
+      summary: Name of the XCFramework
+      description: |
+        Name of the XCFramework
+      is_expand: true
+      is_required: true
 
 outputs:
   - XCFRAMEWORK_PATH:
