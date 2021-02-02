@@ -1,0 +1,68 @@
+#
+# A couple of useful guides & docs:
+#
+# - Main Bitrise CLI docs: https://github.com/bitrise-io/bitrise/tree/master/_docs
+# - Step Development Guideline: https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
+# - Bitrise.yml format spec: https://github.com/bitrise-io/bitrise/blob/master/_docs/bitrise-yml-format-spec.md
+# - Bitrise docs: http://devcenter.bitrise.io/
+# - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
+
+title: |-
+  Build XCFramework
+summary: |
+  Builds an XCFramework
+description: |
+  as above
+website: https://github.com/adrianstoyles/bitrise-step-build-xcframework
+source_code_url: https://github.com/adrianstoyles/bitrise-step-build-xcframework
+support_url: https://github.com/adrianstoyles/bitrise-step-build-xcframework/issues
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+
+project_type_tags:
+  - ios
+
+type_tags:
+  - build
+
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+
+deps:
+  brew:
+  - name: git
+  - name: wget
+  apt_get:
+  - name: git
+  - name: wget
+
+toolkit:
+  bash:
+    entry_file: step.sh
+
+
+inputs:
+  - example_step_input: Default Value - you can leave this empty if you want to
+    opts:
+      title: "Example Step Input"
+      summary: Summary. No more than 2-3 sentences.
+      description: |
+        Description of this input.
+
+        Can be Markdown formatted text.
+      is_expand: true
+      is_required: true
+      value_options: []
+
+outputs:
+  - EXAMPLE_STEP_OUTPUT:
+    opts:
+      title: "Example Step Output"
+      summary: Summary. No more than 2-3 sentences.
+      description: |
+        Description of this output.
+
+        Can be Markdown formatted text.
