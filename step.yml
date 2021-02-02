@@ -45,7 +45,7 @@ toolkit:
 
 
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
+  - project_path_input: $BITRISE_PROJECT_PATH
     opts:
       title: "Project path"
       summary: Path to the xcodeproj
