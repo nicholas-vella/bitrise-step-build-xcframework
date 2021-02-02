@@ -5,6 +5,8 @@ echo "Build XCFramework for project: \n${project_path_input}\n${scheme}"
 
 SCHEME_NAME=${scheme}
 FRAMEWORK_NAME=${product_name}
+BUILD_DIR=build
+CONFIGURATION=Release
 
 SIMULATOR_ARCHIVE_PATH="${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphonesimulator.xcarchive"
 DEVICE_ARCHIVE_PATH="${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphoneos.xcarchive"
