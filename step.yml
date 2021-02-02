@@ -53,9 +53,17 @@ inputs:
         Builds an XCFramework for the given Xcode project
       is_expand: true
       is_required: true
+  - scheme: $BITRISE_SCHEME
+    opts:
+      title: "Xcode scheme"
+      summary: Scheme to build
+      description: |
+        Project scheme to build
+      is_expand: true
+      is_required: true
 
 outputs:
-  - EXAMPLE_STEP_OUTPUT:
+  - XCFRAMEWORK_PATH:
     opts:
       title: "XCFramework path"
       summary: The path of the XCFramework
