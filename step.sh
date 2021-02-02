@@ -15,6 +15,7 @@ rm -rf "${OUTPUT_DIR}"
 
 # Simulator xcarchive
 xcodebuild archive \
+  -project ${project_path_input} \
   -scheme ${SCHEME_NAME} \
   -archivePath ${SIMULATOR_ARCHIVE_PATH} \
   -sdk iphonesimulator \
@@ -23,6 +24,7 @@ xcodebuild archive \
 
 # Device xcarchive
 xcodebuild archive \
+  -project ${project_path_input} \
   -scheme ${SCHEME_NAME} \
   -archivePath ${DEVICE_ARCHIVE_PATH} \
   -sdk iphoneos \
