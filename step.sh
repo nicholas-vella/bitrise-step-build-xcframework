@@ -10,7 +10,7 @@ CONFIGURATION=Release
 
 SIMULATOR_ARCHIVE_PATH="${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphonesimulator.xcarchive"
 DEVICE_ARCHIVE_PATH="${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphoneos.xcarchive"
-OUTPUT_DIR="./xcframework/"
+OUTPUT_DIR="./xcframework"
 
 # Clean up old output directory
 rm -rf "${OUTPUT_DIR}"
