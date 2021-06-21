@@ -15,23 +15,44 @@ OUTPUT_DIR="./xcframework"
 # Clean up old output directory
 rm -rf "${OUTPUT_DIR}"
 
-# Simulator xcarchive
-xcodebuild archive \
-  -project ${project_path_input} \
-  -scheme ${SCHEME_NAME} \
-  -archivePath ${SIMULATOR_ARCHIVE_PATH} \
-  -sdk iphonesimulator \
-  SKIP_INSTALL=NO \
-  BUILD_LIBRARY_FOR_DISTRIBUTION=YES
-
-# Device xcarchive
-xcodebuild archive \
-  -project ${project_path_input} \
-  -scheme ${SCHEME_NAME} \
-  -archivePath ${DEVICE_ARCHIVE_PATH} \
-  -sdk iphoneos \
-  SKIP_INSTALL=NO \
-  BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+if [["$project_path_input}" == "*xcworkspace"]]
+then
+  # Simulator xcarchive
+  xcodebuild archive \
+    -workspace ${project_path_input} \
+    -scheme ${SCHEME_NAME} \
+    -archivePath ${SIMULATOR_ARCHIVE_PATH} \
+    -sdk iphonesimulator \
+    SKIP_INSTALL=NO \
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+  
+  # Device xcarchive
+  xcodebuild archive \
+    -workspace ${project_path_input} \
+    -scheme ${SCHEME_NAME} \
+    -archivePath ${DEVICE_ARCHIVE_PATH} \
+    -sdk iphoneos \
+    SKIP_INSTALL=NO \
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+else
+  # Simulator xcarchive
+  xcodebuild archive \
+    -project ${project_path_input} \
+    -scheme ${SCHEME_NAME} \
+    -archivePath ${SIMULATOR_ARCHIVE_PATH} \
+    -sdk iphonesimulator \
+    SKIP_INSTALL=NO \
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+  
+  # Device xcarchive
+  xcodebuild archive \
+    -project ${project_path_input} \
+    -scheme ${SCHEME_NAME} \
+    -archivePath ${DEVICE_ARCHIVE_PATH} \
+    -sdk iphoneos \
+    SKIP_INSTALL=NO \
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+fi
 
 # Create xcframweork
 xcodebuild -create-xcframework \
