@@ -15,7 +15,7 @@ OUTPUT_DIR="./xcframework"
 # Clean up old output directory
 rm -rf "${OUTPUT_DIR}"
 
-if [[ "$project_path_input" == "*xcworkspace" ]]
+if [[ "$project_path_input" == *xcworkspace ]]
 then
   # Simulator xcarchive
   xcodebuild archive \
